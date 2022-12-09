@@ -35,4 +35,27 @@ class Tablero:
         return True
 
 
-        
+    def formato(self):
+        for fila in range(self.tamanio):
+            for columna in range(self.tamanio):
+                if columna == self.columnas[fila]:
+                    print("R", end=" ")
+                else:
+                    print("·", end=" ")
+
+            print()
+
+def resolucion(tamanio):
+
+    tablero = Tablero(tamanio)
+
+    soluciones = 0
+
+    fila = 0
+
+    columna = 0
+
+    while True:
+
+        while columna < tamanio:
+            if tablero.siguiente_fila(columna)
