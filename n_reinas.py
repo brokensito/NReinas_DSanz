@@ -91,6 +91,6 @@ def resolucion(tamanio):
 
 
 if __name__ == "__main__":
-    a = 4
-    resolucion(10)
+    n = int(input("Introduce el numero de Reinas:"))
+    resolucion(n)
 
