@@ -23,5 +23,16 @@ class Tablero:
                 return False
 
         # Nos fijamos en la diagonal. 
+        for r_fila, r_columna in enumerate(self.columnas):
+            if r_columna - r_fila == columna - fila:
+                return False
+
+        # Miramos la otra diagonal
+        for r_fila, r_columna in enumerate(self.columnas):
+            if ((self.tamanio - r_columna) - r_fila) == ((self.tamanio) - fila):
+                return False
+
+        return True
+
 
         
