@@ -2,7 +2,6 @@ class Tablero:
     def __init__(self, tamanio):
         # Establecemos un tablero de amplitud "tamanio x tamanio".
         self.tamanio = tamanio
-
         self.columnas = []
 
     def agregar_siguiente_fila (self, columna):
@@ -29,7 +28,7 @@ class Tablero:
 
         # Miramos la otra diagonal
         for r_fila, r_columna in enumerate(self.columnas):
-            if ((self.tamanio - r_columna) - r_fila) == ((self.tamanio) - fila):
+            if ((self.tamanio - r_columna) - r_fila) == ((self.tamanio - columna) - fila):
                 return False
 
         return True
@@ -58,4 +57,40 @@ def resolucion(tamanio):
     while True:
 
         while columna < tamanio:
-            if tablero.siguiente_fila(columna)
+            if tablero.siguiente_fila(columna):
+                tablero.agregar_siguiente_fila(columna)
+                fila +=1
+                columna = 0
+                break
+            
+            else:
+                columna += 1
+
+        
+        if (columna == tamanio or fila == tamanio):
+
+            if fila == tamanio:
+                tablero.formato()
+                print()
+                soluciones +=1
+                tablero.eliminar_fila_actual()
+                fila -= 1
+
+            try:
+                columna_anterior = tablero.eliminar_fila_actual()
+
+            except IndexError:
+
+                # Se han eliminado todas las reinas.
+                break
+
+            fila -= 1
+            columna = 1 + columna_anterior
+
+    print("Numero de soluciones:", soluciones)
+
+
+if __name__ == "__main__":
+    a = 4
+    resolucion(10)
+
